@@ -1,128 +1,214 @@
 Sur vim:
 
-u(undo) pour retour en arrière
-y pour copier
-yy pour coppier la ligne
-p pour coller
-d pour couper
-dd pour couper la ligne
+u(undo) pour retour en arrière <br>
+y pour copier <br>
+yy pour coppier la ligne <br>
+p pour coller <br>
+d pour couper <br>
+dd pour couper la ligne <br>
+
+# Lignes de commande
 
 Installer django:
 
-```python
+```sh
 pip install django
 ```
 
 Connaître la version d'un module:
 
-```python
+```sh
 python -m django --version
 ```
 
 Trouver de l'aide sur django
 
-```python
+```sh
 jango-admin --help
 ```
 
-Créer les dossiers et fichiers nécessaires au projet django:
+Créer l'arborescence de base d'un projet Django:
 
-```python
+```bash
 django-admin startproject nom_projet
 ```
+Pour créer une application:
 
-Le fichier settings est utile pour configurer la base de données, les applications, les templates etc.
-Intéressant variable DEBUG
-Renommer le dossier du code par src.
-
-Plus pratique pour démarrer le serveur est de se positionner dans src et faire:
-
-```python
-python manage.py runserver
+```bash
+python3 manage.py startapp nom_app
 ```
+
+Pour démarrer le serveur sur un port est de se positionner dans src:
+
+```sh
+python manage.py runserver port
+```
+
+Pour créer un super-utilisateur:
+
+```sh
+python manage.py createsuperuser
+```
+
+La ligne de commande proposera d'y inscrire un nom d'utilisateur, une adresse mail et un mot de passe.
 
 On crée un fichier views.py avec les fichiers settings.py etc pour les vues.
 Pour faire le lien entre urls.py et views.py dans urls.py par urlpatterns:
 
+# settings.py
+
+Le fichier settings.py contient les paramètres du projet. Il est important de le configurer correctement sous peine d'avoir des problèmes de chemin. Il faut faire attention à la syntaxe. 
+
+BASE_DIR est le chemin du dossier src.
+
+DEBUG est un booléen qui permet de savoir si on est en mode debug ou non. Il est à True par défaut. Il faut le mettre à False en production.
+
+INSTALLED_APPS est une liste contenant toutes les applications que Django doit utilisé. Il faut ajouter les applications que l'on crée à l'intérieur.
+
+TEMPLATES est une liste contenant les options des templates. Il faut ajouter le chemin du dossier templates du projet.
+
+Root_urlconf est le chemin du fichier urls.py du projet à partir du dossier src. Ce fichier est le point d'entrée par lequel Django va effectuer la résolution des urls.
+
+AUTH_USER_MODEL est le modèle utilisateur que Django va utiliser. Par défault, auth.User
+
+STATIC_URL est le nom du dossier static. Il est à /static/ par défaut. Cela signifie que Django va chercher tous les dossiers static/ dans les applications.
+
+STATICFILES_DIRS est une liste de tous les chemins des dossiers static. Il faut ajouter le chemin du dossier static du projet.
+
+## Templates/statics
+
+Pour faire le lien entre le fichier html et le fichier css, il faut ajouter la ligne suivante au début du fichier html pour indiquer que l'on utilise le système du dossier static:
+
 ```python
-from src.nom_projet.views import nom_url
+{% load static %}
 ```
 
-Dans views.py
+Puis, on indique de manière propre le chemin à partir du dossier static:
 
-```python
-from django.http import httpResponse
-
-def nom_url(request):
-	return HttpResponse("mon_html")
+```html
+href = "{% static 'css/style.css}"
 ```
 
-On se rend compte que mettre notre code html dans le fichier views c'est pas ouf.
-On va utiliser les templates.
-D'abord on définit le path dans la clé DIRS de la variable TEMPLATE du settings:
+Mais Django chercher le premier dossier static qu'il trouve. En indiquant le même lien, chaque html aura la même feuille de style. On fait donc d'une autre manière pour différencier les fichiers statics.
 
-```python
-os.path.join(BASE_DIR, "nom_projet/templates")
+```html
+href = "{% static 'nom_app/css/style.css %}
 ```
 
-templates est le dossier dans le dossier settings urls
-BASE_DIR fait référence à src
+Le même problème se pose pour les dossiers templates. On résout le problème de la même manière. On place un dossier avec le nom de l'application en dessous du dossier templates. 
+
+Le chemin à partir de src pour un fichier html:
+
+```
+nom_app/templates/nom_app/html/index.html
+```
+
+Le chemin à partir de src pour un fichier static:
+
+```
+nom_app/static/nom_app/static/css/style.css
+```
+
+# urls.py
+
+Le fichier urls.py permet de router les urls. Dans ce fichier il faut importer les fonctions path et include si on en a besoin. A l'intérieur de urlpatterns, on met les urls sous la forme:
+
+```python
+from .views import fonction
+path("nom_app/chemin", fonction, name="nom_url")
+```
+
+Cela se passe ainsi lorsque la vue se positionne dans la même application. Si la vue se trouve dans une autre application, il faut importer la fonction include et mettre dans urlpatterns:
+
+```python
+path("nom_app/", include("nom_app.urls"), name="nom_url")
+```
+
+Et ensuite, dans le fichier urls.py de l'app, on met:
+
+```python
+from .views import fonction
+path("", fonction, name="nom_url")
+```
+
+Il faut mettre l'argument name pour pouvoir faire le lien entre les urls et les vues.
+
+# views.py
+
+Le fichier views.py permet de créer les vues. Ce sont des fonctions qui prennent en argument request et qui renvoient une réponse(la page web). Par exemple, la méthode POST sera utilisé pour envoyer des données au serveur et sera routé par le fichier urls.py vers la fonction vue qui va traiter les données et renvoyer une réponse. C'est également ici que l'on va gérer l'authentification. 
+Le code suivant permet de renvoyer une page html contenu dans le dossier templates de l'application:
 
 ```python
 from django.shortcuts import render
 
 def index(request):
-	return render(request, "index.html")
+	return render(request, "nom_app/html/index.html")
 ```
 
-Il suffirat de mettre dans le path des views le nom du fichier.
-
-Pour faire des pages dynamiques, on utilise le context. On passe en argument à render, undictionnaitre qui s'appelle context. Il fait le lien entre le template et les données que l'on veut afficher. A l'intérieur de la page html, on met une double accolade et une clé du dictionnaire.
-
-Pour créer une application:
+Pour faire des pages dynamiques, on utilise le context. On passe en argument à render, un dictionnaitre qui s'appelle context. Il fait le lien entre le template et les données de la base. A l'intérieur de la page html, on met une double accolade et une clé du dictionnaire.
 
 ```python
-python3 manage.py startapp nom_app
+from django.shortcuts import render
+
+def index(request):
+	return render(request, "nom_app/html/index.html", context={"cle": "valeur"})
 ```
 
-Dans le ficheir settings, il faut ajouter dans la liste INSTALLED_APPS, "nom_projet" 
+# models.py
 
-Une bonne pratique est de mettre les urls dans le dossier de l'app. Pour cela on fait dans le fichier root urls:
+Le fichier models.py regroupe tous les modèles.
+Les modèles sont des classes qui permettent de représenter des tables des données dans la base de données. Chaque attribut de la classe représente un champ de base de données. Par défaut, Django utilise une base de données SQLite.
+
+## models.Model
+
+ Chaque modèle créé va hériter de cette classe. Le nom de la table est le nom de la classe nouvellement créé:
 
 ```python
-path("nom_app/", include("nom_app.urls"))
+from django.db import models
+class NomModel(models.Model):
+	pass
 ```
 
-Bien sur il faut importer ce qu'il faut dans les deux fichiers urls. Les urls de l'app doivent être dans une liste urlpatterns et seront relatifs au dossier de l'app.
-
-Dans le dossier de l'app il faut ajouter un dossier templates précisement mais comme il regarde tous les dossiers templates il faut créer dedans un dossier avec le nom de l'app. Le path des views sont relatif aux dossier templates de l'app.
-
-Pour faire le lien entre le html et css. On crée un dossier static dans le dossier de l'app. Puis css. On rajoute {% load static %} au début du fichier css. href="{% static 'nom_app/css/style.css' %}" dans le fichier html. Le lien est relatif au dossier static de l'app.
-
-Pour faire le lien entre le html et le css dans le projet gobal, il faut ajouter dans le fichier settings.py:
+On peut définir le nom des champs par une variable et leur type par des méthodes prédéfinites:
 
 ```python
-STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, "nom_projet/static")
-]
+from django.db import models
+class NomModel(models.Model):
+	nom_champ = models.CharField(max_length=100)
 ```
 
-Mongodb:
+ On peut aussi définir des contraintes sur les champs.
 
-Les fichiers de logs et et de données:
+## Relationnel
 
-/var/lib/mondodb
-/var/log/mongodb
+Pour créer une relation entre deux tables, on utilise la méthode ForeignKey:
 
-Le fichier de configuration:
+```python
+class NomModel():
+	nom_champ = models.ForeignKey("NomAutreModel", on_delete=models.CASCADE)
+```
 
-/etc/mongodb.conf
+# Admin.py
 
+Le fichier admin.py permet de gérer les données de la base de données. Pour que l'administrateur puisse accéder aux modèles depuis l'interface web à l'url /admin/, on  inscrit les modèles commes suit dans n'importe quel fichier admin.py:
 
+```python
+from django.contrib import admin
+from .models import nom_model
 
+admin.site.register(nom_model)
+```
 
+# Authentification
 
+Pour que chaque acteur puisse s'authentifier et simplifier l'implantation de celui-ci, il faut créer un modèle utilisateur qui puisse s'adapter à chaque acteur et supporter le système d'authentification de Django. User ne le permet pas donc otre modèle hériter de la classe AbstractUser:
 
+```python
+from django.contrib.auth.models import AbstractUser
+
+class CustomUser(AbstractUser):
+	pass
+```
 
 
 
