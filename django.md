@@ -201,7 +201,7 @@ admin.site.register(nom_model)
 
 # Authentification
 
-Pour que chaque acteur puisse s'authentifier et simplifier l'implantation de celui-ci, il faut créer un modèle utilisateur qui puisse s'adapter à chaque acteur et supporter le système d'authentification de Django. User ne le permet pas donc otre modèle hériter de la classe AbstractUser:
+Le modèle d'authentification User ne nous convient pas puisqu'il ne contient pas un champ "type" que l'on veut pour caractériser l'utilisateur(soit expéditeur, soit destinataire etc). On va donc créer un modèle CustomUser qui hérite des méthodes d'authentification et auquel on va ajouter un champ "type".
 
 ```python
 from django.contrib.auth.models import AbstractUser
@@ -209,6 +209,8 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
 	pass
 ```
+
+De plus, nous voulons que l'authentification se fasse avec l'adresse mail et non le nom d'utilisateur car elle se réalise par défaut avec le nom d'utilisateur et le mot de passe. On va modifier le champ username pour qu'il soit égal à l'adresse mail. 
 
 
 

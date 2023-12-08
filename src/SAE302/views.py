@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 def login(request):
 	if request.method == "POST":
-
 		print("=="*20)
 		email = request.POST.get("email")
 		password = request.POST.get("password")
