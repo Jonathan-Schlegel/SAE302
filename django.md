@@ -75,6 +75,8 @@ STATIC_URL est le nom du dossier static. Il est à /static/ par défaut. Cela si
 
 STATICFILES_DIRS est une liste de tous les chemins des dossiers static. Il faut ajouter le chemin du dossier static du projet.
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'. Ce modèle ajoute un champ id par défaut à tous les modèles.
+
 ## Templates/statics
 
 Pour faire le lien entre le fichier html et le fichier css, il faut ajouter la ligne suivante au début du fichier html pour indiquer que l'on utilise le système du dossier static:
@@ -158,6 +160,17 @@ def index(request):
 
 Le fichier models.py regroupe tous les modèles.
 Les modèles sont des classes qui permettent de représenter des tables des données dans la base de données. Chaque attribut de la classe représente un champ de base de données. Par défaut, Django utilise une base de données SQLite.
+Après créé un modèle, il faut effectuer la commande suivante pour que Django puisse l'utiliser :
+
+```sh
+python manage.py makemigrations
+```
+
+Puis:
+
+```sh
+python manage.py migrate
+```
 
 ## models.Model
 
@@ -210,10 +223,33 @@ class CustomUser(AbstractUser):
 	pass
 ```
 
-De plus, nous voulons que l'authentification se fasse avec l'adresse mail et non le nom d'utilisateur car elle se réalise par défaut avec le nom d'utilisateur et le mot de passe. On va modifier le champ username pour qu'il soit égal à l'adresse mail. 
+De plus, nous voulons que l'authentification se fasse avec l'adresse mail et non le nom d'utilisateur car elle se réalise par défaut avec le nom d'utilisateur et le mot de passe. La création d'un utilisateur ne se fera plus avec son nom comme identifiant. On va donc modifier le modèle CustomUser comme suit:
 
+```python
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(max_length=254, unique=True)
+    type = models.CharField(max_length=30, null=True)
+```
 
+De plus, on a besoin de redéfinir ce dont à besoin create_user pour réalisé la création d'un utilisateur. On va donc créer une classe UserManager qui hérite de BaseUserManager et qui va redéfinir la méthode create_user:
 
+```python
+```
 
+```python
+USERNAME_FIELD = 'email'
+```
 
+```python
+USERNAME_FIELD = 'email'
+```
 
+```python
+EMAIL_FIELD = 'email'
+```
+
+C'est champ email qui va être défini comme tel. C'est utlise lorsque l'on veut retrouver l'email d'un utilisateur.
+
+```python
+get_email_field_name()
+```
