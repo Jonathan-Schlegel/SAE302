@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expéditeur</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >    <meta charset="utf-8">
+</head>
+<body>
+
+        <header>
+            <h1>CARGO</h1>
+            <button class="button-logout">Déconnexion</button>
+        </header>
+        <a href="#details" class="a-details"><button class="button-create">Créer &plus;</button></a>
+        <!-----Le div blanc représentant la div blanche commande-->
+        <div class="div-command">
+            <p class="p-idpackage">#ID</p>
+            <a href="#details" class="a-details">Détails</a>
+            <p class="p-bin">&#xe020;</p>
+        </div>
+        <!-----La partie popup ajout/modification----->
+        <div id="details" class="modal">
+            <div class="modal_content">
+                <a href="#" class="modal_close">&times;</a>
+                <form method="post">
+                    <input type="text" name="sender" placeholder="Amazon" required>
+                    <input type="text" name="transport" placeholder="Transporteur" required>
+                    <input type="text" name="weight" placeholder="5000" required>
+                    <input type="text" name="size" placeholder="300x300x300" required>
+                    <input type="text" name="state" placeholder="Emballé" required>
+                    <input type="text" name="name" placeholder="Jonathan Schlegel" required>
+                    <button class="button-modified" type="submit">Modifier</button>
+                </form>
+            </div>
+        </div>
+        <!--------------------------------------------------->
+</body>
+</html>

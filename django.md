@@ -69,7 +69,7 @@ TEMPLATES est une liste contenant les options des templates. Il faut ajouter le 
 
 Root_urlconf est le chemin du fichier urls.py du projet à partir du dossier src. Ce fichier est le point d'entrée par lequel Django va effectuer la résolution des urls.
 
-AUTH_USER_MODEL est le modèle utilisateur que Django va utiliser. Par défault, auth.User
+AUTH_USER_MODEL est le modèle utilisateur que Django va utiliser. nom_app.nom_model
 
 STATIC_URL est le nom du dossier static. Il est à /static/ par défaut. Cela signifie que Django va chercher tous les dossiers static/ dans les applications.
 

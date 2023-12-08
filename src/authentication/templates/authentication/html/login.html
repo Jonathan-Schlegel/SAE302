@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentification</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication/css/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.svg' %}" ></head>
+<body>
+    <div class="div-global">
+        <h1>CARGO</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="email" placeholder="email" required>
+            <input type="password" name="password" placeholder="Mot de passe" required>
+            <button type="submit">S'authentifier</button>
+        </form>
+    </div>
+</body>
+</html>
