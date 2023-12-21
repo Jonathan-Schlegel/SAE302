@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 #Primary key est créer par défaut si pas déclarer
 
-class CustomUser(AbstractUser):
+class User(AbstractUser):
         USERNAME_FIELD = "email"
         email = models.EmailField(unique=True)
 

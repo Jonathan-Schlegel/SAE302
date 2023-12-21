@@ -29,6 +29,11 @@ h1{
     border-radius: 6rem;
 }
 
+.button-logout:hover{
+    background-color: #03045e;
+    color: white;
+}
+
 .button-create{
     color: white;
     font-size: 1.4em;

@@ -71,6 +71,8 @@ Root_urlconf est le chemin du fichier urls.py du projet à partir du dossier src
 
 AUTH_USER_MODEL est le modèle utilisateur que Django va utiliser. nom_app.nom_model
 
+AUTHENTICATION_BACKENDS est le module d'authentification que Django va utiliser. C'est utilse pour pouvoir customiser l'authentification.
+
 STATIC_URL est le nom du dossier static. Il est à /static/ par défaut. Cela signifie que Django va chercher tous les dossiers static/ dans les applications.
 
 STATICFILES_DIRS est une liste de tous les chemins des dossiers static. Il faut ajouter le chemin du dossier static du projet.
@@ -174,7 +176,7 @@ python manage.py migrate
 
 ## models.Model
 
- Chaque modèle créé va hériter de cette classe. Le nom de la table est le nom de la classe nouvellement créé:
+ Chaque classe créé va hériter de cette classe pour devenir un modèle. Le nom de la table est le nom de la classe nouvellement créé:
 
 ```python
 from django.db import models
@@ -194,7 +196,14 @@ class NomModel(models.Model):
 
 ## Relationnel
 
-Pour créer une relation entre deux tables, on utilise la méthode ForeignKey:
+Pour créer une relation entre deux tables, il existe trois types de relations:
+
+ManyToMany(plusieurs à plusieurs): Une table peut avoir plusieurs instances d'une autre table et une instance d'une table peut avoir plusieurs instances d'une autre table.
+
+OneToMany(plusieurs à un): Une table peut avoir plusieurs instances d'une autre table mais une instance d'une table ne peut avoir qu'une seule instance d'une autre table.
+
+OneToOne(un à un): Une table peut avoir une seule instance d'une autre table et une instance d'une table peut avoir une seule instance d'une autre table.
+
 
 ```python
 class NomModel():
@@ -216,40 +225,16 @@ admin.site.register(nom_model)
 
 Le modèle d'authentification User ne nous convient pas puisqu'il ne contient pas un champ "type" que l'on veut pour caractériser l'utilisateur(soit expéditeur, soit destinataire etc). On va donc créer un modèle CustomUser qui hérite des méthodes d'authentification et auquel on va ajouter un champ "type".
 
-```python
-from django.contrib.auth.models import AbstractUser
-
-class CustomUser(AbstractUser):
-	pass
-```
-
-De plus, nous voulons que l'authentification se fasse avec l'adresse mail et non le nom d'utilisateur car elle se réalise par défaut avec le nom d'utilisateur et le mot de passe. La création d'un utilisateur ne se fera plus avec son nom comme identifiant. On va donc modifier le modèle CustomUser comme suit:
-
-```python
-class CustomUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=254, unique=True)
-    type = models.CharField(max_length=30, null=True)
-```
-
-De plus, on a besoin de redéfinir ce dont à besoin create_user pour réalisé la création d'un utilisateur. On va donc créer une classe UserManager qui hérite de BaseUserManager et qui va redéfinir la méthode create_user:
-
-```python
-```
+De plus, nous voulons que l'authentification se fasse avec l'adresse mail et non avec le nom d'utilisateur car elle se réalise par défaut avec le nom d'utilisateur et le mot de passe. La création d'un utilisateur ne se fera plus avec son nom comme identifiant. 
 
 ```python
 USERNAME_FIELD = 'email'
 ```
 
-```python
-USERNAME_FIELD = 'email'
-```
+De plus, on a besoin de redéfinir ce dont à besoin create_user pour réalisé la création d'un utilisateur. On va donc créer une classe UserManager qui hérite de BaseUserManager et qui va redéfinir les méthodes de créations d'utilisateur.
+
+Création d'un utilisateur:
 
 ```python
-EMAIL_FIELD = 'email'
-```
-
-C'est champ email qui va être défini comme tel. C'est utlise lorsque l'on veut retrouver l'email d'un utilisateur.
-
-```python
-get_email_field_name()
+CustomUser.objects.create_user(email="test@test.fr", password="test", type="addressee")
 ```
