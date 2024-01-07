@@ -1,0 +1,223 @@
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #90E0EF;
+}
+
+.div-full{
+  box-sizing: border-box;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+}
+
+h1{
+    color: #03045e;
+    font-weight: bold;
+    font-size: 5em;
+    margin-top: 5rem;
+    margin-left: 3rem;
+}
+
+.button-logout{
+    background-color: #03045e;
+    color: white;
+    font-size: 1.4em;
+    width: 10rem;
+    height: 4rem;
+    margin-right: 1rem;
+    font-weight: bolder;
+    border: none;
+    border-radius: 1rem;
+}
+
+.button-logout:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.p-hello{
+    color: #03045e;
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 9rem;
+}
+ 
+span{
+  color: black;
+}
+
+.div-button{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.div-table{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-grow: 1;
+}
+
+table{
+  width: 80%;
+  justify-content: center;
+}
+
+tbody{
+  background-color: white;
+}
+
+td{
+  text-align: center;
+  padding: 1rem;
+}
+
+.a-modal {
+    text-decoration: none;
+    padding: 15px;
+    background-color: green;
+    border-radius: 5px;
+    color: black;
+  }
+
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, .7);
+    transition: all .4s;
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal_content {
+    border-radius: 2rem;
+    position: relative;
+    width: 40rem;
+    background-color: white;
+    padding: 1.5em 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: grey;
+    text-decoration: none;
+}
+
+.div-state{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.received{
+  opacity: 0.7;
+}
+
+.circle-packed{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #03045e;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.circle-arrived{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #03045e;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.circle-departed{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #777777;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.circle-delivered{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #777777;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.circle-received{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #777777;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+.div-button-received{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+
+}
+.button-received{
+  background-color: #03045e;
+  color: white;
+  font-size: 1.4em;
+  width: 8rem;
+  height: 3rem;
+  margin-top: 2rem;
+  font-weight: bolder;
+  border: none;
+  border-radius: 1rem;
+}
+
+.button-received:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+.div-details{
+  margin-top: 1rem;
+  border-top: 1px solid #03045e;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    background-color: #03045e;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}

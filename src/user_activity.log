@@ -1,0 +1,107 @@
+2024-01-07 20:02:10 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:02:16 [INFO] "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:02:19 [INFO] "GET / HTTP/1.1" 200 730
+2024-01-07 20:02:28 [INFO] L'utilisateur dpd@dpd.com s'est connecté.
+2024-01-07 20:02:28 [INFO] "POST / HTTP/1.1" 302 0
+2024-01-07 20:02:28 [INFO] "GET /sender/ HTTP/1.1" 200 5915
+2024-01-07 20:05:54 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:05:55 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:06:19 [INFO] "GET /sender/ HTTP/1.1" 200 5915
+2024-01-07 20:06:22 [INFO] "GET / HTTP/1.1" 200 730
+2024-01-07 20:07:00 [INFO] L'utilisateur carole@carole.fr s'est connecté.
+2024-01-07 20:07:00 [INFO] "POST / HTTP/1.1" 302 0
+2024-01-07 20:07:00 [INFO] "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:07:52 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:07:52 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:08:29 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:08:29 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:09:22 [INFO] "GET / HTTP/1.1" 200 730
+2024-01-07 20:09:30 [INFO] L'utilisateur carole@carole.fr s'est connecté.
+2024-01-07 20:09:30 [INFO] "POST / HTTP/1.1" 302 0
+2024-01-07 20:09:30 [INFO] "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:18:20 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:18:20 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:18:30 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:18:31 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:18:39 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:18:39 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:18:44 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:18:44 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:19:48 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:19:48 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:19:55 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:19:56 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:20:34 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:20:35 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:20:42 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:20:42 [INFO] Watching for file changes with StatReloader
+2024-01-07 20:21:41 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/package_delivery/settings.py changed, reloading.
+2024-01-07 20:22:07 [INFO] /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:30:36 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:30:36 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:30:38 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:30:38 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:30:43 [INFO    ] (basehttp.log_message) "GET /sender/ HTTP/1.1" 200 5915
+2024-01-07 20:30:43 [INFO    ] (basehttp.log_message) "GET /sender/ HTTP/1.1" 200 5915
+2024-01-07 20:36:55 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:36:55 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:42:19 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:42:19 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:42:27 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:42:27 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:42:33 [INFO    ] (views.log_in) This logs an info message.
+2024-01-07 20:42:33 [WARNING ] (views.log_in) This logs a warning message.
+2024-01-07 20:42:33 [ERROR   ] (views.log_in) This logs an error message.
+2024-01-07 20:42:33 [ERROR   ] (views.log_in) This logs an exception.
+Traceback (most recent call last):
+  File "/home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py", line 45, in log_in
+    raise Exception("This is a handled exception")
+Exception: This is a handled exception
+2024-01-07 20:42:33 [INFO    ] (basehttp.log_message) "POST / HTTP/1.1" 302 0
+2024-01-07 20:42:33 [INFO    ] (basehttp.log_message) "POST / HTTP/1.1" 302 0
+2024-01-07 20:42:33 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:42:33 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:43:47 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:43:47 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:43:48 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:43:48 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:44:24 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:44:24 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:44:25 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:44:25 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:44:50 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:44:50 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:44:50 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:44:50 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:44:55 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:44:55 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:45:01 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:45:01 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:45:07 [INFO    ] (views.log_in) This logs an info message.
+2024-01-07 20:45:07 [WARNING ] (views.log_in) This logs a warning message.
+2024-01-07 20:45:07 [ERROR   ] (views.log_in) This logs an error message.
+2024-01-07 20:45:07 [INFO    ] (views.log_in) This logs an exception.
+2024-01-07 20:45:07 [ERROR   ] (views.log_in) This logs an exception.
+Traceback (most recent call last):
+  File "/home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py", line 46, in log_in
+    raise Exception("This is a handled exception")
+Exception: This is a handled exception
+2024-01-07 20:45:07 [INFO    ] (basehttp.log_message) "POST / HTTP/1.1" 302 0
+2024-01-07 20:45:07 [INFO    ] (basehttp.log_message) "POST / HTTP/1.1" 302 0
+2024-01-07 20:45:07 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:45:07 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:46:11 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:46:11 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:46:11 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:46:11 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:47:00 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:47:00 [INFO    ] (autoreload.trigger_reload) /home/jojo/JOJO/Semestre 3/SAE302/SAE302/src/authentication/views.py changed, reloading.
+2024-01-07 20:47:00 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:47:00 [INFO    ] (autoreload.run_with_reloader) Watching for file changes with StatReloader
+2024-01-07 20:47:09 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:47:09 [INFO    ] (basehttp.log_message) "GET / HTTP/1.1" 200 730
+2024-01-07 20:47:16 [INFO    ] (views.log_in) L'utilisateur carole@carole.fr s'est connecté.
+2024-01-07 20:47:16 [INFO    ] (basehttp.log_message) "POST / HTTP/1.1" 302 0
+2024-01-07 20:47:16 [INFO    ] (basehttp.log_message) "POST / HTTP/1.1" 302 0
+2024-01-07 20:47:16 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664
+2024-01-07 20:47:16 [INFO    ] (basehttp.log_message) "GET /addressee/ HTTP/1.1" 200 2664

@@ -1,3 +1,4 @@
+
 body{
     background-color: #90E0EF;
 }
@@ -17,23 +18,6 @@ h1{
     margin-left: 1rem;
 }
 
-.button-logout{
-    color: #03045e;
-    font-size: 1.4em;
-    width: 10rem;
-    height: 4rem;
-    margin-right: 1rem;
-    background-color: white;
-    font-weight: bolder;
-    border: none;
-    border-radius: 6rem;
-}
-
-.button-logout:hover{
-    background-color: #03045e;
-    color: white;
-}
-
 .button-create{
     color: white;
     font-size: 1.4em;
@@ -51,7 +35,7 @@ h1{
     flex-direction: row;
     justify-content: space-between;
     height: 7rem;
-    background-color: white;
+    background-color: yellow;
     margin-top: 2rem;
     margin-right: 9rem;
     margin-left: 9rem;
@@ -64,10 +48,10 @@ h1{
     margin: 0;
 }
 
-a {
+.a-modal {
     text-decoration: none;
     padding: 15px;
-    background-color: white;
+    background-color: green;
     border-radius: 5px;
     color: black;
   }
@@ -95,7 +79,7 @@ a {
     border-radius: 2rem;
     position: relative;
     width: 40rem;
-    background: white;
+    background: pink;
     padding: 1.5em 2em;
   }
 
@@ -112,7 +96,6 @@ a {
     align-items: center;
     justify-content: center;
   }
-  
     .button-modified{
         background-color: #03045e;
         color: white;

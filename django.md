@@ -238,3 +238,5 @@ Création d'un utilisateur:
 ```python
 CustomUser.objects.create_user(email="test@test.fr", password="test", type="addressee")
 ```
+
+Ctrl-F5 pour rafraîchir la page sans utiliser le cache.

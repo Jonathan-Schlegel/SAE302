@@ -1,39 +1,102 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Expéditeursssss</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
-    <link rel="shortcut icon" type="image/svg" href="{% static 'images/favicon.svg' %}" >    <meta charset="utf-8">
-</head>
-<body>
-
-        <header>
-            <h1>CARGO</h1>
-            <button class="button-logout">Déconnexion</button>
-        </header>
-        <a href="#details" class="a-details"><button class="button-create">Créer &plus;</button></a>
-        <!-----Le div blanc représentant la div blanche commande-->
-        <div class="div-command">
-            <p class="p-idpackage">#ID</p>
-            <a href="#details" class="a-details">Détails</a>
-            <p class="p-bin">&#xe020;</p>
-        </div>
-        <!-----La partie popup ajout/modification----->
-        <div id="details" class="modal">
-            <div class="modal_content">
-                <a href="#" class="modal_close">&times;</a>
-                <form method="post">
-                    <input type="text" name="sender" placeholder="Amazon" required>
-                    <input type="text" name="transport" placeholder="Transporteur" required>
-                    <input type="text" name="weight" placeholder="5000" required>
-                    <input type="text" name="size" placeholder="300x300x300" required>
-                    <input type="text" name="state" placeholder="Emballé" required>
-                    <input type="text" name="name" placeholder="Jonathan Schlegel" required>
-                    <button class="button-modified" type="submit">Modifier</button>
-                </form>
+    <head>
+        <title>Espace expéditeur</title>
+        <link rel="stylesheet" href="{% static 'main/css/sender.css' %}">
+        <link rel="shortcut icon" type="image/svg" > 
+        <link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/svg+xml">   
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="div-full">
+            <header>
+                <h1>CARGO</h1>
+                <a href="{% url 'logout' %}"><button class="button-logout">Déconnexion</button></a>
+            </header>
+            <div class="div-button-add-modified">
+                <a href="#add-package"><button class="button-add">Créer colis &plus;</button></a>
+                <a href="#add-transport"><button class="button-add">Créer transporteur &plus;</button></a>
+                <a href="#add-addressee"><button class="button-add">Créer destinataire &plus;</button></a>
             </div>
+            <div class="div-button-list">
+                <a href="#package-list"><button class="button-add">Lister les colis</button></a>
+                <a href="#transport-list"><button class="button-add">Lister les transporteurs</button></a>
+                <a href="#addressee-list"><button class="button-add">Lister les destinataires</button></a>
+            </div>
+            <div class="div-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nom de la commande</th>
+                        <th>Status</th>
+                        <th>Détails</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>#505</td>
+                        <td>EMBALLÉ</td>
+                        <td><a href="#update">Modifier</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+                <!-----La popup de création/modification de colis------------------------->
+                <div id="add-package" class="modal">
+                    <div class="modal_content">
+                        <a href="#" class="modal_close">&times;</a>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="transport" placeholder="transporteur" required>
+                            <input type="text" name="addressee" placeholder="destinataire" required>
+                            <input type="text" name="weight" placeholder="poids" required>
+                            <input type="text" name="length" placeholder="longueur" required>
+                            <input type="text" name="width" placeholder="largeur" required>
+                            <input type="text" name="height" placeholder="hauteur" required>
+                            <input type="text" name="latitude" placeholder="latitude" required>
+                            <input type="text" name="longitude" placeholder="longitude" required>
+                            <input type="hidden" name="id" value="add-package">
+                            <button class="button-update" type="submit">Créer</button>
+                        </form>
+                    </div>
+                </div>
+                <!-----La popup de création/modification de transporteur------------------------->
+                <div id="add-transport" class="modal">
+                    <div class="modal_content">
+                        <a href="#" class="modal_close">&times;</a>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="transport" placeholder="transporteur" required>
+                            <input type="email" name="email" placeholder="email@email.com" required>
+                            <input type="password" name="password" placeholder="password" required>
+                            <input type="hidden" name="id" value="add-transport">
+                            <button class="button-update" type="submit">Créer</button>
+                        </form>
+                    </div>
+                </div>
+                <!-----La popup de création/modification de destinataire------------------------->
+                <div id="add-addressee" class="modal">
+                    <div class="modal_content">
+                        <a href="#" class="modal_close">&times;</a>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="name" placeholder="Nom" required>
+                            <input type="text" name="address" placeholder="Adresse" required>
+                            <input type="text" name="postal_code" placeholder="Code postal" required>
+                            <input type="text" name="city" placeholder="Ville" required>
+                            <input type="text" name="phone" placeholder="Téléphone" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="password" name="password" placeholder="Mot de passe" required>
+                            <input type="hidden" name="id" value="add-addressee">
+                            <button class="button-update" type="submit">Créer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>© 2024 CARGO </br> All rights reserved</p>
+            </footer>
         </div>
-        <!--------------------------------------------------->
 </body>
 </html>
